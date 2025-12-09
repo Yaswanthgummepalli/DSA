@@ -1,18 +1,26 @@
 #finding the indices which add up equal to target
 def sum(arr,target):
-
-    for l in range(0,len(arr)-1):
-        for i in range(l + 1, len(arr)):
-            if arr[l] + arr[i] == target:
-                print("indeces are",l, i)
-                return True
-    else:
-        print("not found")
-        return False
-arr=[12,13,24,56,45,18]
-target=30
+    arr=sorted(arr)
+    length=len(arr)
+    left=0
+    right=length-1
+    res=[]
+    while left<right:
+        if arr[left]+arr[right]==target:
+            res.append(left)
+            res.append(right)
+            return res
+        elif arr[left]+arr[right]<target:
+            left+=1
+        else:
+            right-=1    
+           
+    return None         
+           
+arr=[3,2,4]
+target=7
+print(sorted(arr))
 print(sum(arr,target))
-
 
 
 
